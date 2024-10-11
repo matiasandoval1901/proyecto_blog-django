@@ -1,0 +1,17 @@
+{% extends 'layouts/post_layout.html' %} 
+
+{% block title %}BORRAR Post | BLOG IA{% endblock title %}
+
+{% block content %}
+<div class="flex flex-col justify-center items-center min-h-[500px]"> 
+    <h2>¿Estás seguro de que deseas eliminar este post?</h2>
+    <div class="flex gap-2">
+        <form method="post"> 
+            {% csrf_token %} 
+            <button type="submit" class="bg-red-500 text-white p-2 rounded-lg">Sí, eliminar</button>
+        </form>
+    </div>
+    <a href="javascript:history.back()" class="bg-blue-500 text-white p-2 rounded-lg">Cancelar</a>
+    {% comment %} <a href="{% url 'post:post_detail' slug=object.slug %}" >Cancelar</a> {% endcomment %} 
+</div>
+{% endblock content %}

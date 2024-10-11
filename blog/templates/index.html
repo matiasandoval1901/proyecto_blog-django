@@ -1,0 +1,19 @@
+<!-- blog\templates\index.html --> 
+{% extends 'layouts/general_layout.html' %} 
+
+{% block title %}Inicio | Tragos 🍹{% endblock title %}
+
+{% block content %}
+  <div>
+  
+  {% for post in posts %}
+    <div>
+      <h3> {{post.title}} </h3>
+    </div>
+  {% endfor %}
+    
+  </div>
+{% endblock content %}
+
+
+        
