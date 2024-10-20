@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'apps.post',
-    'apps.user'
+    'apps.user',
+    'apps.contacto'
 ]
 
 # Define los middleware que se aplicarán a las solicitudes y respuestas de la aplicación.

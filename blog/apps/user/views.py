@@ -2,6 +2,7 @@ from django.views.generic import TemplateView, CreateView
 from django.contrib.auth.views import LoginView as LoginViewDjango, LogoutView as LogoutViewDjango
 from apps.user.forms import RegisterForm, LoginForm
 from django.contrib.auth.models import Group
+from django.contrib.auth import login
 from django.urls import reverse_lazy 
 
 class UserProfileView(TemplateView):
@@ -21,15 +22,24 @@ class RegisterView(CreateView):
         # En caso de ser necesario se le puede asignar explicitamente los permisos del grupo al usuario 
         # for permission in registered_group.permissions.all(): 
         #     self.object.user_permissions.add(permission)
+        
+        # Autenticar y loguear al usuario automáticamente
+        login(self.request, self.object)
         return response
     
 class LoginView(LoginViewDjango): 
     template_name = 'auth/auth_login.html' 
     authentication_form = LoginForm 
     
-    def get_success_url(self): 
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url 
         return reverse_lazy('home')    
     
 class LogoutView(LogoutViewDjango): 
-    def get_success_url(self): 
+    def get_success_url(self):
+        next_url = self.request.GET.get('next')
+        if next_url:
+            return next_url 
         return reverse_lazy('home')

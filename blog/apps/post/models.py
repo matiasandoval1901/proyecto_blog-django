@@ -39,7 +39,7 @@ class Post(models.Model):
             unique_slug = f'{slug}-{num}'
             num += 1 
 
-            return unique_slug
+        return unique_slug
         
 class Comment(models.Model): 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
@@ -67,8 +67,11 @@ class PostImage(models.Model):
     
     def __str__(self): 
         return f"PostImage {self.id}"
-
+    
 class Category(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(max_length=200)
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="category_posts")
+
+    def __str__(self):
+        return self.title

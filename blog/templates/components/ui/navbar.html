@@ -1,24 +1,26 @@
-<!-- blog\templates\components\ui\navbar.html -->
-<nav> 
+<nav class="flex space-x-4"> 
     <ul class="flex gap-4"> 
-        <li><a href="{% url 'home' %}">Inicio</a></li> 
-        <li><a href="">Acerca de</a></li>
+        <li><a href="{% url 'home' %}" class="hover:text-blue-200"><i class="fa-solid fa-house"></i></a></li> 
+        <li><a href="{% url 'about' %}" class="hover:text-gray-200">Acerca de Nosotros</a></li>
+        <li><a href="{% url 'post:post_list' %}" class="hover:text-gray-200">Posts</a></li>
         {% if user.is_authenticated %}
-            {% if user.is_collaborator %} 
+            <strong> {{ user.alias }} </strong>
+            <!-- Mostrar solo si el usuario está -->
+            {% if user.is_superuser or user.is_admin or user.is_collaborator %} 
                 <li><a href="{% url 'post:post_create' %}">Publicar</a></li> 
             {% endif %} 
             <!-- Mostrar opciones si el usuario está autenticado --> 
             <li><a href="{% url 'user:user_profile' %}">Perfil</a></li> 
             <li> 
-                <form method="POST" action="{% url 'user:auth_logout' %}"> 
+                <form method="POST" action="{% url 'user:auth_logout' %}?next={{ request.path }}"> 
                     {% csrf_token %} 
                     <button type="submit">Cerrar sesión</button> 
                 </form> 
             </li> 
         {% else %} 
             <!-- Mostrar opciones si el usuario NO está autenticado --> 
-            <li><a href="{% url 'user:auth_login' %}">Iniciar sesión</a></li> 
-            <li><a href="{% url 'user:auth_register' %}">Registrarse</a></li> 
+            <li><a href="{% url 'user:auth_login' %}?next={{ request.path }}" class="hover:text-gray-200">Iniciar sesión</a></li> 
+            <li><a href="{% url 'user:auth_register' %}" class="hover:text-gray-200">Registrarse</a></li> 
         {% endif %} 
     </ul>
 </nav>

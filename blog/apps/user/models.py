@@ -3,8 +3,9 @@ from django.db import models
 import os
 import uuid
 
+
 def get_avatar_filename(instance, filename):
-    base_filename, file_extension = os.path.splittext(filename)
+    base_filename, file_extension = os.path.splitext(filename)
     new_filename = f"user_{instance.id}_avatar{file_extension}"
 
     return os.path.join('user/avatar/', new_filename)

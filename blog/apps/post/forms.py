@@ -1,5 +1,5 @@
 from django import forms 
-from apps.post.models import Post, PostImage, Comment
+from apps.post.models import Post, PostImage, Comment, Category
 
 class PostForm(forms.ModelForm): 
     class Meta: 
@@ -58,3 +58,24 @@ class CommentForm(forms.ModelForm):
         widgets = {
             'content': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Escribe tu comentario...', 'class': 'p-2'})
         }
+
+class PostFilterForm(forms.Form):
+    search_query = forms.CharField( 
+        required=False, 
+        widget=forms.TextInput(attrs={'placeholder': 'Buscar...', 'class': 'w-full p-2'})
+    )
+    order_by = forms.ChoiceField( 
+        required=False, 
+        choices=( 
+            ('-creation_date', 'Más reciente'), 
+            ('creation_date', 'Más antiguo'), 
+            ('-comments_count', 'Más comentado'), 
+        ),
+        widget=forms.Select(attrs={'class': 'w-full p-2'}) 
+    )
+    category = forms.ModelChoiceField(
+        queryset=Category.objects.all(),
+        required=False,
+        empty_label='Filtrar por',
+        widget=forms.Select(attrs={'class': 'w-full p-2', 'onchange': 'this.form.submit();'}),
+    )
