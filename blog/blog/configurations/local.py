@@ -14,4 +14,3 @@ DATABASES = {
 
 # Puerto para entorno local 
 os.environ['DJANGO_PORT'] = '3000'
-
