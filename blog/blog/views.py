@@ -13,3 +13,6 @@ class IndexView(ListView):
 
 class AboutView(TemplateView):
     template_name = 'about.html'
+
+
+
