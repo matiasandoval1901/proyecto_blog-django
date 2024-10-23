@@ -18,18 +18,14 @@
       <p class=" mx-auto mb-2 font-bold text-md">{{ form.password.label_tag }}{{ form.password }}</p>
     <div>
     <div class="mt-4 flex justify-between w-full py-4">
-      <div class="mr-24">
-        <input type="checkbox" name="check" id="check" class="mr-2"/>
-        <span class="text-md">Recordarme</span>
-      </div>
       <button 
         type="submit" 
         class="mt-8 w-full bg-black text-white p-2 rounded-lg mb-6"
         href="{% url 'user:user_login' %}">Iniciar sesión
       </button>
-      <div class="text-center text-gray-400">No tienes una cuenta?
-       <span><a class="font-bold text-black" href="{% url 'user:auth_register' %}">Registrate gratis</a></span>
-      </div>
+    </div>
+    <div class="text-center text-gray-400">No tienes una cuenta?
+      <span><a class="font-bold text-black" href="{% url 'user:auth_register' %}">Registrate gratis</a></span>
     </div>
  </form>
 </div>

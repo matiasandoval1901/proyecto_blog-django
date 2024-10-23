@@ -3,20 +3,21 @@
 {% block title %}MixDrinks | Crear Post{% endblock title %} 
 
 {% block content %}
-{% if user.is_superuser or user.is_admin or user.is_collaborator %}
-  <form method="post"  enctype= "multipart/form-data">
-   {% csrf_token %}
-   <div class= "ml-8 flex flex-col gap-4">
-      <p class= "mt-8 text-md">{{ form.title.label_tag }} {{ form.title }}</p>
-      <p class=" text-md">{{ form.time.label_tag }}{{ form.time }}</p>
-      <p class=" text-md ">{{ form.category.label_tag }}{{ form.category}}</p>
-      <p class="flex flex-col text-md"><label for="id_content">Contenido:</label> {{ form.content }}</p>
-      <p>{{ form.allow_comments.label_tag }} {{ form.allow_comments }}</p>
-      <p><input class="mt-4" type="file" name="images" multiple /></p>
-    </div>
-    <button type="Return" class="ml-8 mt-8 bg-red-500 text-white text-sm p-2 rounded-lg">Cancelar Post</button>
-    <button type="submit" class="ml-8 mt-8 bg-green-500 text-white text-sm p-2 rounded-lg">Crear Post</button>
-  </form>
-{% endif %}
+<main class="h-screen flex flex-col justify-center items-center mx-auto">
+  {% if user.is_superuser or user.is_admin or user.is_collaborator %}
+    <form method="post"  enctype= "multipart/form-data">
+     {% csrf_token %}
+     <div class= "flex flex-col gap-4">
+        <p class= "mt-8 text-xl">{{ form.title.label_tag }} {{ form.title }}</p>
+        <p class=" mt-4 text-xl">{{ form.time.label_tag }}{{ form.time }}</p>
+        <p class=" mt-4 text-xl ">{{ form.category.label_tag }}{{ form.category}}</p>
+        <p class="mt-4 flex flex-col text-xl"><label for="id_content">Contenido:</label> {{ form.content }}</p>
+        <p>{{ form.allow_comments.label_tag }} {{ form.allow_comments }}</p>
+        <p><input class="mt-4" type="file" name="images" multiple /></p>
+      </div>
+      <button type="Return" class="ml-8 mt-8 bg-red-500 text-white text-sm p-2 rounded-lg">Cancelar Post</button>
+      <button type="submit" class="ml-8 mt-8 bg-green-500 text-white text-sm p-2 rounded-lg">Crear Post</button>
+    </form>
+  {% endif %}
 {% endblock content %}
 

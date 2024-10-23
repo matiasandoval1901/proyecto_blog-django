@@ -8,6 +8,7 @@ import os
 class Post(models.Model): 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False) 
     title = models.CharField(max_length=200)
+    time = models.CharField(max_length=200, null= True, blank= True )
     slug = models.SlugField(unique=True, max_length=200, blank=True)
     content = models.TextField(max_length=10000)
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
