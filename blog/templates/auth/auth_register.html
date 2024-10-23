@@ -1,16 +1,19 @@
 {% extends 'layouts/auth_layout.html' %} 
 
 {% block title %}Registrarse | MixDrinks{% endblock title %} 
-
-{% block content %} 
-<div class="flex flex-col justify-center items-center"> 
-    <h1 class="text-center text-2xl mb-6">Registrarse</h1> 
-    <form class="flex flex-col max-w-[400px] gap-4" method="post" enctype="multipart/form-data"> 
-      {% csrf_token %} {{ form.as_p }} 
-        <button type="submit" class="w-full bg-green-400 py-2 rounded-lg"> 
-        Registrarse 
-        </button> 
-    </form>
+{% load static %}
+{% block content %}
+<div class=" flex flex-col justify-center p-8 md:p-14">
+  <div class="ml-32">
+    <img src="{% static 'assets/usuario.png' %}" alt="inicio sesion img" class="w-24 h-24 ml-3 mx-auto mb-4 "/>
+  </div>
+  <h1 class="mx-auto mt-6 mb-3 text-4xl font-bold">Registrate</h1>
+  <form class="flex flex-col max-w-[400px] gap-4" method="post" enctype="multipart/form-data"> 
+   {% csrf_token %} {{ form.as_p }} 
+    <button type="submit" class=" mt-8 w-full bg-black text-white p-2 rounded-lg mb-6"> 
+      Registrarse 
+    </button> 
+  </form>
 </div> 
 {% endblock content %}
 

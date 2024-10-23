@@ -4,13 +4,13 @@
   {% block title %}MixDrinks{% endblock title %} 
 {% endblock title_layout %}
 
-{% block extra_head_layout %} 
-  {% block extra_head %}{% endblock extra_head %} 
-{% endblock extra_head_layout %} 
+{% block extra_head_layout %}
+   {% block extra_head %}{% endblock extra_head %}
+{% endblock extra_head_layout %}
 
 {% load static %}
 {% block content_layout %}
- <main class=" flex items-center justify-center min-h-[calc(100dvh-10px)] bg-white">
+ <main class=" flex items-center justify-center min-h-[calc(100dvh-10px)] bg-black">
      <div class="relative flex flex-col m-6 space-y-8 bg-white rounded-2xl md:flex-row md:space-y-0">
          {% block content %}{% endblock content %}  
      </div>

@@ -193,6 +193,8 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         is_post_author = user == post.author
         author_is_admin = post.author.is_superuser or post.author.is_admin
         
+        if user.is_superuser:
+            can_update= is_post_author
         if user.is_collaborator:
             can_update = is_post_author
         elif user.is_registered:

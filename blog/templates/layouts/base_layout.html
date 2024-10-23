@@ -3,19 +3,23 @@
 
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="dark"> 
-    <head> 
-        <meta charset="UTF-8" /> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
-        <title>{% block title_layout %}{% endblock title_layout %}</title> 
-        <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}" type="image/x-icon"/>
-        <script src="{% static 'js/tailwind.config.js' %}"></script> 
-        <script src="https://cdn.tailwindcss.com"></script>
-        <script src="https://kit.fontawesome.com/cc919f323e.js" crossorigin="anonymous"></script> 
-        {% block extra_head_layout %}{% endblock extra_head_layout %} 
-    </head> 
+  <head> 
+    <meta charset="UTF-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>{% block title_layout %}{% endblock title_layout %}</title> 
+    <link rel="shortcut icon" href="{% static 'assets/favicon.ico' %}" type="image/x-icon"/>
+    <script src="{% static 'js/tailwind.config.js' %}"></script> 
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/cc919f323e.js" crossorigin="anonymous"></script> 
+    {% block extra_head_layout %}{% endblock extra_head_layout %} 
+  </head> 
 
-<body class="min-w-[280px]"> 
-    {% block content_layout %}{% endblock content_layout %} 
+<body>
+   
+ {% block content_layout %}{% endblock content_layout %}
+    
 </body>
-
-</html>      
+<footer>
+  {% block footer_layout %}{% endblock footer_layout %}
+</footer>
+</html>
