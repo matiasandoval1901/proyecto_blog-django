@@ -219,10 +219,14 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         is_post_author = user == post.author
         author_is_admin = post.author.is_superuser or post.author.is_admin
         
-        if user.is_collaborator:
+        can_delete = False
+
+        if user.is_superuser or user.is_admin:
+            can_delete = True
+        elif user.is_collaborator:
             can_delete = is_post_author    
         elif user.is_registered:
-            can_delete = False
+            can_delete = is_post_author
         
         return can_delete and not author_is_admin 
 
