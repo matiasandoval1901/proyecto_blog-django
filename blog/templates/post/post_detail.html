@@ -1,19 +1,19 @@
 {% extends "layouts/post_layout.html" %}
 
 
-{% block title %}Detalle | MiXDRiNKs {% endblock title %}
+{% block title %}{{ post.title }}| MiXDRiNKs {% endblock title %}
 
 {% load static %}
 {% block content %}
  <div class="flex flex-col w-full">
    {% if active_images %}
-     <div class="grid grid-cols-1">
+     <div class="mt-4 ml-4 grid grid-cols-1">
        {% for img in active_images %}
          <a href= "{{ img.image.url }}" target="_blank">
            <img
            src= "{{ img.image.url }}" 
            alt= "Portada del post" 
-           class= "w-[300px] object-cover aspect-[10/9]" >
+           class= "w-[400px] object-cover aspect-[10/9]" >
          </a>
        {% endfor %}
      </div>
@@ -28,8 +28,8 @@
      {% endif %}
    </div>
 
-   <div class="ml-4 mt-12">
-     {{ post.content }}
+   <div class="ml-8 mt-12 text-xl inline-block bg-white bg-opacity-30 rounded-md px-4 py-2 w-fit">
+     {{ post.content|linebreaksbr|safe }}
    </div>
 
 
@@ -78,13 +78,13 @@
                </form>
                {% else %} 
                   <li class= "mt-4 mb-8 border-t border-gray-600">
-                     <p class= "mt-2 ml-2 bg-gray-600 inline-block rounded">{{ comment.content }}</p>
-                     <p class= "mt-2 ml-2 text-xs">Escrito por {{ comment.author.username }} </p>
+                     <p class= "mt-2 ml-2 bg-gray-300 text-xl inline-block rounded">{{ comment.content }}</p>
+                     <span class= "mt-2 ml-2 text-md">Escrito por {{ comment.author.username }} </span>
                      {% if comment.author == user %}
-                         <a href="?edit_comment={{ comment.id }}" class="text-blue-500">Editar</a>
+                         <a href="?edit_comment={{ comment.id }}" class="ml-2 text-blue-500">Editar</a>
                          <a href="?delete_comment={{ comment.id }}" class="text-red-500">Eliminar</a>
                      {% elif user.is_collaborator and post.author == user and not comment.author.is_admin and not comment.author.is_superuser or user.is_admin or user.is_superuser %}
-                         <a href="?delete_comment={{ comment.id }}" class="text-red-500">Eliminar</a>
+                         <a href="?delete_comment={{ comment.id }}" class="ml-2 text-red-500">Eliminar</a>
                      {% endif %}
                   </li>
               {% endif %}
@@ -107,5 +107,8 @@
           <a href="{% url 'user:auth_login' %}" class= "text-blue-500">Inicia sesion </a> para agregar un comentario.
      </p>
  {% endif %}
+ <br>
+ <br>
+ <br>
 
 {% endblock content %}

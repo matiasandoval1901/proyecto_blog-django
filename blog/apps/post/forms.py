@@ -21,9 +21,9 @@ class PostForm(forms.ModelForm):
              'time' :forms.Textarea(attrs={'class': 'w-50 inline-block','rows': 1,
                                                 'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-x:hidden;',
                                                  'oninput': 'this.style.height= "";this.style.height=this.scrollHeight+"px";'}),
-             'content' :forms.Textarea(attrs={'class': 'w-100 inline-block','rows': 5,
-                                                'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-x:hidden;',
-                                                 'oninput': 'this.style.height= "";this.style.height=this.scrollHeight+"px";'})
+             'content' :forms.Textarea(attrs={'class': 'w-100 inline-block','rows': 8,
+                                                'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-y:scroll; overflow-x:hidden;',
+                                                 'oninput': 'this.style.height= "200px";'})
           }
 
 

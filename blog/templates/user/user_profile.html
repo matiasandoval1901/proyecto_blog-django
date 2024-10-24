@@ -9,7 +9,7 @@
    <div class="container max-w-4xl mx-auto h-auto  rounded-3xl bg-gray-100 bg-opacity-30 backdrop-blur-md">
       <div class="flex flex-col md:flex-row md:space-x-4">
         <div class="w-60 h-65 md:w-64 md:h.64 rounded-full overflow-hidden">
-           <img src="{% static 'assets/usuario.png' %}" alt="imagen del usuario" class="object-cover">
+           <img src="{% static 'assets\usuario.png' %}" alt="imagen del usuario" class="object-cover">
         </div>
     
 
@@ -18,9 +18,9 @@
 
          <div class="flex flex-wrap mb-4">
            <div class="w-full md:w-1/2 xl:w1/3 px-4 mb-4">
-              <h3 class="text-lg text-sm font-bold mb-2">Informacion de contacto</h3>
-              <p class="mt-2 text-sm font-bold">Correo electronico: {{ user.email }}</p>
-              <p class="mt-2 text-sm font-bold">Tu alias: {{ user.alias }}</p>
+              <h3 class="text-lg text-md font-bold mb-2 border-b border-black ">Informacion de contacto</h3>
+              <p class="mt-2 text-md font-bold">Correo electronico: {{ user.email }}</p>
+              <p class="mt-2 text-md font-bold">Tu alias: {{ user.alias }}</p>
            </div>
          </div>
        </div>
@@ -28,7 +28,7 @@
        <div class="mt-auto">
          <form method="post" action="{% url 'user:auth_logout' %}">
            {% csrf_token %}
-           <button class="h-10 bg-red-500 text-white text-sm p-2 rounded-lg" type="submit">Cerrar sesión</button>
+           <button class="mb-4 mr-4 h-10 bg-red-500 text-white text-sm p-2 rounded-lg" type="submit">Cerrar sesión</button>
          </form>
        </div>
      </div>

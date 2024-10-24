@@ -1,10 +1,10 @@
 <nav class="flex space-x-4"> 
-    <ul class="flex gap-6"> 
+    <ul class="flex gap-4"> 
         <li><a href="{% url 'home' %}" class="text-white hover:text-blue-200"><i class="fa-solid fa-house"></i></a></li> 
-        <li><a href="{% url 'about' %}" class="text-white hover:text-gray-200 font-bold ">Acerca de Nosotros</a></li>
-        <li><a href="{% url 'post:post_list' %}" class="text-white hover:text-gray-200 font-bold">Posts</a></li>
+        <li><a href="{% url 'about' %}" class="text-white hover:text-gray-200 font-bold ">Nosotros</a></li>
+        <li><a href="{% url 'post:post_list' %}" class="text-white hover:text-gray-200 font-bold">Recetas</a></li>
         {% if user.is_authenticated %}
-            <strong> {{ user.alias }} </strong>
+            <strong class="text-white"> {{ user.alias }} </strong>
             <!-- Mostrar solo si el usuario está -->
             {% if user.is_superuser or user.is_admin or user.is_collaborator %} 
                 <li><a href="{% url 'post:post_create' %}" class="text-white font-bold">Publicar</a></li> 
@@ -14,7 +14,7 @@
             <li> 
                 <form method="POST" action="{% url 'user:auth_logout' %}?next={{ request.path }}"> 
                     {% csrf_token %} 
-                    <button class="bg-white rounded-lg" type="submit">Cerrar sesión</button> 
+                    <button class="text-md bg-white rounded-lg" type="submit">Cerrar sesión</button> 
                 </form> 
             </li> 
         {% else %} 

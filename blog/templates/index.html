@@ -5,21 +5,21 @@
 
 {% block content %}
   <div class= "flex justify-start ">
-     <h1 class=" mt-72 ml-10 text-white text-6xl">Bienvenidos a MiXDRiNKs<br>El arte de Mezclar<br>
+     <h1 class=" mt-72 ml-10 text-white text-4xl">𝙱𝚒𝚎𝚗𝚟𝚎𝚗𝚒𝚍𝚘𝚜 𝚊 𝙼𝚒𝚇𝙳𝚁𝚒𝙽𝙺𝚜<br>𝙴𝚕 𝚊𝚛𝚝𝚎 𝚍𝚎 𝚖𝚎𝚣𝚌𝚕𝚊𝚛<br>
         <p class=" text-gray-500 text-lg ml-4 mt-4">La preparacion de un coctel es un ritual que requiere<br>atención al detalle y amor por la perfeccion.
         <br>Cada movimiento, cada ingrediente y cada técnica <br>son parte de un proceso que eleva<br>la mixología a un arte...<br>Te invitamos a explorar el mundo de la mixologia <br>
         con nosotros.</p>
         <p class="ml-4 text-white italic text-lg ">¡Descubre,aprende y crea tus propios MixDrinks!</p>
      </h1>
   </div>
-  <h1 class=" mt-60 ml-4 flex justify-start text-white text-3xl border-b border-gray-500 font-bold">Explora los ultimos articulos>></h1>
+  <h1 class=" mt-60 ml-4 flex justify-start text-white text-2xl border-b border-gray-500 ">𝙴𝚡𝚙𝚕𝚘𝚛𝚊 𝚕𝚘𝚜 ú𝚕𝚝𝚒𝚖𝚘𝚜 𝚊𝚛𝚝í𝚌𝚞𝚕𝚘𝚜>></h1>
   <br>
   <br>
   <div class="grid grid-cols-3 gap-4 mt-70">
    {% for post in object_list %}
      <div class="ml-4 p-4 bg-orange-500 bg-opacity-30 text-white rounded-2xl">
         {% for image in post.images.all %}
-          <img src="{{ image.image.url }}" alt="Imagen del post" class="w-12 rounded-md" />
+          <img src="{{ image.image.url }}" alt="Imagen del post" class="w-1/2 rounded-md" />
         {% empty %}
           <small>No hay imágenes disponibles para este post.</small>
         {% endfor %} 

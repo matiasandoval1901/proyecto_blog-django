@@ -1,6 +1,6 @@
 {% extends 'layouts/post_layout.html' %} 
 
-{% block title %}Tragos | Más recetas {% endblock title %} 
+{% block title %}Tragos | MiXDRiNKs {% endblock title %} 
 
 {% block content %}
     <form method="get" class="mx-auto  flex justify-center items-center flex-wrap sm:flex-nowrap gap-2">
@@ -8,7 +8,7 @@
       {{ filter_form.search_query }} 
       {{ filter_form.order_by }} 
       {{ filter_form.category }} 
-        <button type="submit" class="ml-6 mt-4 px-2 h-6 bg-blue-500 text-white rounded-lg">Buscar</button>
+        <button type="submit" class="ml-6 mt-4 px-8 h-6 bg-blue-500 text-white rounded-lg">Buscar</button>
     </form>
     <div class="grid grid-cols-3 gap-2"> 
         {% for post in object_list %} 
@@ -16,44 +16,46 @@
                 <h3 class="text-2x1 uppercase font-bold border-b border-black">{{ post.title }}</h3>
                 <div>
                     {% for image in post.images.all %}
-                    <img src="{{ image.image.url }}" alt="Imagen del post" class="w-1/3 rounded-lg" />
+                    <img src="{{ image.image.url }}" alt="Imagen del post" class="mt-2 w-1/2 rounded-lg" />
                     {% empty %}
                         <small>No hay imágenes disponibles para este post.</small>
                     {% endfor %}        
                 </div>
-                <p>Publicado por: <strong class="font-bold">{{ post.author.username }}</strong></p> 
-                <p>Fecha de publicación: {{ post.creation_date }}</p> 
-                <p>Comentarios: {{ post.amount_comments }}</p>
-                {% if post.category  %}
-                    <p>Categoría: {{ post.category.title }} </p>
-                {% else %}
-                   <p> Categoría: "Sin definir" </p>   
-                {% endif %}
+                <div class= "mt-4 gap-2">
+                 <p>Publicado por: <strong class="font-bold">{{ post.author.username }}</strong></p> 
+                 <p>Fecha de publicación:<strong class="font-bold">{{ post.creation_date }}</strong></p> 
+                 <p>Comentarios:<strong class="font-bold">{{ post.amount_comments }}</strong></p>
+                 {% if post.category  %}
+                     <p>Categoría:<strong class="font-bold">{{ post.category.title }}</strong></p>
+                 {% else %}
+                    <p> Categoría: "Sin definir" </p>   
+                 {% endif %}
+                </div>
                 <div class="flex gap-2 mt-8"> 
                     <a  
-                    class="bg-blue-500 text-white p-2 rounded-lg"  
+                    class="bg-blue-500 text-white text-xs p-2 rounded-lg"  
                     href="{% url 'post:post_detail' slug=post.slug %}" 
                     >Ver post</a>
                     
                     {% if user.is_superuser or user.is_admin %}
                         <a 
-                            class="bg-red-500 text-white p-2 rounded-lg" 
+                            class="bg-red-500 text-white text-xs p-2 rounded-lg" 
                             href="{% url 'post:post_delete' slug=post.slug %}" 
                             >Eliminar post</a>
                         {% if user == post.author %}
                           <a 
-                            class="bg-green-500 text-white p-2 rounded-lg" 
+                            class="bg-green-500 text-white text-xs p-2 rounded-lg" 
                             href="{% url 'post:post_update' slug=post.slug %}" 
                             >Editar post</a>   
                         {% endif %}      
                     {% elif user.is_collaborator %}
                         {% if user == post.author %}
                            <a 
-                            class="bg-green-500 text-white p-2 rounded-lg" 
+                            class="bg-green-500 text-white text-xs p-2 rounded-lg" 
                             href="{% url 'post:post_update' slug=post.slug %}" 
                             >Editar post</a>
                            <a 
-                            class="bg-red-500 text-white p-2 rounded-lg" 
+                            class="bg-red-500 text-white text-xs p-2 rounded-lg" 
                             href="{% url 'post:post_delete' slug=post.slug %}" 
                             >Eliminar post</a>     
                         {% endif %}           
@@ -65,21 +67,23 @@
     <!-- Controles de paginación --> 
     <div class="mt-4"> 
         {% if is_paginated %} 
-            <div class="flex justify-center items-center gap-2"> 
+            <div class="mt-4 flex justify-center items-center gap-2"> 
                 {% if pagination.previous_page %} 
-                    <a href="{{ pagination.previous_page }}" class="w-16 text-xs text-center 
+                    <a href="{{ pagination.previous_page }}" class="w-16 text-md text-center 
                         bg-blue-500 text-white p-1 rounded-md">Anterior</a> 
                 {% else %} 
-                    <span class="w-16 text-xs text-center bg-gray-500 text-white p-1 rounded-md">Anterior</span> 
+                    <span class="w-16 text-md text-center bg-white p-1 rounded-md">Anterior</span> 
                 {% endif %} 
                     <span class="w-10 text-center text-lg font-semibold">{{ page_obj.number }}</span> 
 
                 {% if pagination.next_page %} 
-                    <a href="{{ pagination.next_page }}" class="w-16 text-xs text-center bg blue-500 text-white p-1 rounded-md">Siguiente</a> 
+                    <a href="{{ pagination.next_page }}" class="w-18 text-md text-center bg-blue-500 text-white p-1 rounded-md">Siguiente</a> 
                 {% else %} 
-                    <span class="w-16 text-xs text-center bg-gray-500 text-white p-1 rounded-md">Siguiente</span> 
+                    <span class="w-18 text-md text-center bg-white p-1 rounded-md">Siguiente</span> 
                 {% endif %}
             </div> 
             {% endif %} 
+            <br>
+            <br>
     </div>
 {% endblock content %}
