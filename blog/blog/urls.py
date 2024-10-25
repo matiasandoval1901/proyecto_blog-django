@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
-from blog.views import IndexView, AboutView
+from blog.views import IndexView, AboutView, not_found_view, internal_error_view, forbidden_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,6 +28,10 @@ urlpatterns = [
     path('', include('apps.user.urls')),
     path('', include('apps.contacto.urls')),
 ]
+ 
+handler404 = not_found_view 
+handler500 = internal_error_view 
+handler403 = forbidden_view 
 
 if settings.DEBUG:
     from django.conf.urls.static import static  

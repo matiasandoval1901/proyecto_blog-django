@@ -1,0 +1,11 @@
+{% extends 'layouts/error_layout.html' %}
+{% load static %}
+
+{% block title %}404 Not Found{% endblock %}
+
+{% block content %}
+    <img src="{% static 'assets/errors/error_404.jpg' %}" alt="Error 404" class="mb-6">
+    <h1 class="text-5xl font-bold text-white bg-red-500 rounded-lg p-4 mb-4">Recurso no encontrad0 (404)</h1>
+    <p class="text-lg text-white-700 font-medium mb-4">Lo sentimos, pero la página que estás buscando no existe.</p>
+    <a href="{% url 'home' %}" class="bg-blue-500 text-white p-2 rounded-lg">Volver al inicio</a>
+{% endblock %}

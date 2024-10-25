@@ -190,15 +190,16 @@ class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
         post = self.get_object()
         user = self.request.user
 
-        is_post_author = user == post.author
-        author_is_admin = post.author.is_superuser or post.author.is_admin
-        
-        if user.is_collaborator:
-            can_update = is_post_author
-        elif user.is_registered:
-            can_update =False
+        can_update = False
 
-        return can_update and not author_is_admin
+        if user.is_collaborator:
+            can_update = user == post.author
+        elif user.is_registered:
+            can_update = False
+        elif user.is_superuser or user.is_admin:
+            can_update = user == post.author   
+
+        return can_update
 
 class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post
@@ -219,12 +220,21 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         is_post_author = user == post.author
         author_is_admin = post.author.is_superuser or post.author.is_admin
         
-        if user.is_collaborator:
-            can_delete = is_post_author    
+        can_delete = False
+
+        if user.is_superuser or user.is_admin:
+            can_delete = True
+        elif user.is_collaborator:
+            if is_post_author:
+                can_delete = True  
         elif user.is_registered:
+            if is_post_author: 
+                can_delete = True
+        
+        if not (user.is_superuser or user.is_admin) and author_is_admin:
             can_delete = False
         
-        return can_delete and not author_is_admin 
+        return can_delete
 
 class CommentCreateView(LoginRequiredMixin, CreateView):
     model = Comment

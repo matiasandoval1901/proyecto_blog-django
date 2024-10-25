@@ -7,4 +7,5 @@ migrations
 /blog/media/*
 /blog/media/**/avatar 
 /blog/media/**/cover
+staticfiles
 entorno

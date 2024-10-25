@@ -2,18 +2,19 @@
 
 {% block title %}Eliminar Post{% endblock title %}
 
-{% block content %}
-    
-<div class="flex flex-col justify-center items-center min-h-[500px]">
-    {% if user.is_superuser or user.is_admin or user.is_collaborator %}    
-        <h2>¿Estás seguro de que deseas eliminar este post?</h2>
-        <div class="flex gap-2">
-            <form method="post"> 
-                {% csrf_token %} 
-                <button type="submit" class="bg-red-500 text-white p-2 rounded-lg">Sí, eliminar</button>
-            </form>
-        </div>
-        <a href="javascript:history.back()" class="bg-blue-500 text-white p-2 rounded-lg">Cancelar</a> 
-    {% endif %}
-</div>
+{% block content %} 
+ <div class= "h-screen flex flex-col justify-center items-center">
+    <div class="bg-gray-100 bg-opacity-20 rounded-lg px-5 mx-24 ml-32 text-xl">
+      {% if user.is_superuser or user.is_admin or user.is_collaborator %}
+       <h1>¿Estás seguro de que deseas eliminar este post?</h1>
+       <form class="flex justify-center items-center mt-6 gap-2" method="post">
+         {% csrf_token %}
+          <button class=" bg-red-500 h-6 text-white px-2 rounded-lg text-sm" type="submit">Sí, eliminar</button>
+      
+         <a class="bg-gray-500 h-6 text-white px-2 rounded-lg text-sm" href="{% url 'post:post_detail' slug=object.slug %}">Cancelar</a>
+       </form>
+      {% endif %}
+   </div>
+  </div>
 {% endblock content %}
+
