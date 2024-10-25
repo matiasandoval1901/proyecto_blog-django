@@ -3,6 +3,20 @@
 *MiXDRiNKs*  es un blog dedicado a la recopilación de recetas de tragos clásicos y complejos. Nuestro objetivo es compartir nuestra pasión por la mixología y brindar inspiración para aquellos que buscan explorar y aprender sobre nuevos sabores y técnicas.
 <br>
 
+### Demo:  https://mixdrinks.pythonanywhere.com
+---
+
+## Integrantes del Proyecto :
+- Zárate Dianela
+- Sandoval Matías 
+
+> [!IMPORTANT]
+> Este es un proyecto que aún se encuentra en desarrollo y en constante mejora
+
+> [!TIP]
+> Para mejorar la experiencia de navegacíon hacerlo desde una PC.
+ Utilizar este username y password para ingresar como usuario registrado: > username: registradoUser || passwword: Jc44Hhvp
+
 ### Caracteristicas
 ---
 
@@ -177,7 +191,7 @@
 │ │ │ │ ├── auth_login.html
 │ │ │ │ ├── auth_register.html
 │ │ │ │ └── ...
-│ │ │ ├── Components/                   <---Componentes reutilizables del sitio
+│ │ │ ├── components/                   <---Componentes reutilizables del sitio
 │ │ │ │ ├── commons/
 │ │ │ │ |  ├── footer.html
 │ │ │ │ |  ├── header.html
@@ -196,6 +210,7 @@
 │ │ │ ├── layout/                      <--- Contiene las estructuras base para las vistas
 │ │ │ │ ├── auth_layout.html
 │ │ │ │ ├── base_layout.html
+│ │ │ │ ├── error_layout.html
 │ │ │ │ ├── general_layout.html
 │ │ │ │ ├── post_layout.html
 │ │ │ │ └── ...
