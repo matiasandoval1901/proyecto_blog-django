@@ -57,6 +57,49 @@
 
 - Accede a **http://localhost:8000/** para ver el blog en acción.
 
+### Uso
+---
+
+##### Navegacion
+
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204797416865855/Inicio.jpg?ex=671c5a41&is=671b08c1&hm=5a7c342305ac8a0d7e9cfbb25aeae3d6be6996a3e0e6f27c5d56e2db7a6b24e5&=&format=webp&width=692&height=389)
+![](https://media.discordapp.net/attachments/1293440022934196234/1299205120965218395/Mas_recientes.jpg?ex=671c5a8e&is=671b090e&hm=c9a44b913e3a9640338ca9295ee17c3c62742afc3ae16a166b071a636431d3ee&=&format=webp&width=692&height=389)
+
+> Descubre nuestra pantalla de inicio intuitiva, desde la barra de tareas accede facilmente a tus recetas favoritas, informacion sobre nuestro equipo y tu perfil personal. Explora los ultimos posts y más con solo scrollear.
+
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299207423411621959/categorias.jpg?ex=671c5cb3&is=671b0b33&hm=c028a336ce78ad1b0e93502e84a3cf484aad92ba2d58ce10b287efd588669b4a&=&format=webp&width=692&height=389)
+
+> Explora y descubre: Busca recetas por titulo, autor, categoria, mas recientes, etc. Fácil, rápido y personalizado.  Presiona **ver post** para acceder al detalle de tu trago favorito.
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204562716201010/Detalle_post.jpg?ex=671c5a09&is=671b0889&hm=aa426f4c1e2b16b08ecfd40db311ef4d636dcccb22c78db809f7ec09c813e73b&=&format=webp&width=692&height=389)
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204707604103188/Comentarios_contactanos.jpg?ex=671c5a2c&is=671b08ac&hm=7e7aa8bbf05e813f972765f21fab3cfcff3fd359f66e47cd9311d8f85dc38320&=&format=webp&width=692&height=389)
+
+> Accede a la infromacion completa de la receta, incluyendo ingredientes e instrucciones y comentarios de la comunidad.
+
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204889544757299/nosotros.jpg?ex=671c5a57&is=671b08d7&hm=858c293cf484dbdaeaec552ea1c258bbcdb0a9feaf59170f63fe4ec296752605&=&format=webp&width=701&height=389)
+
+> En "Nosotros" conoce el equipo, nuestra historia y objetivo.
+
+
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204955651182655/Perfil_usuario.jpg?ex=671c5a67&is=671b08e7&hm=1be554b854cb37cd446ecb12b42c036324ddf960ef4310ad57d334bcc3c34d30&=&format=webp&width=550&height=309)
+
+> En "Perfil" accede a tu perfil personal.
+
+
+### Contribucion
+---
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299212795815923712/Captura_de_pantalla_2024-10-24_201223.png?ex=671c61b4&is=671b1034&hm=5a712e7c3a22cb04bab482c87e8a65820fa30040a101f8ef684f6daaf2592c2e&=&format=webp&quality=lossless&width=1025&height=185)
+
+![](https://media.discordapp.net/attachments/1293440022934196234/1299204642143473715/consultanos.jpg?ex=671c5a1c&is=671b089c&hm=72b9042292ed120d48c3c4d17ccf5abe56f2ea3d948c57bd3e585da6b5f9dfda&=&format=webp&width=692&height=389)
+
+> En "contactanos" accede al formulario para contribuir con el proyecto, enviar sugerencias, contar tu experiencia o reportar errores.
+
 ## ESTRUCTURA DEL PROYECTO
 
 ```
