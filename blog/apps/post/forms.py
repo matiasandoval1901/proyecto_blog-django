@@ -4,7 +4,28 @@ from apps.post.models import Post, PostImage, Comment, Category
 class PostForm(forms.ModelForm): 
     class Meta: 
         model = Post 
-        fields = ('title', 'content', 'allow_comments')
+        fields = ('title', 'time', 'category', 'content', 'allow_comments')
+
+        labels= {
+             'title': 'Titulo ',
+             'time': 'Tiempo de preparacion ',
+             'category': 'Categoria ',
+             'content': 'Contenido ',
+             'allow_comments': 'Comentarios '
+        }
+
+        widgets= {
+             'title': forms.Textarea(attrs={'class': 'w-50 inline-block','rows': 1,
+                                                'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-x:hidden;',
+                                                 'oninput': 'this.style.height= "";this.style.height=this.scrollHeight+"px";'}),
+             'time' :forms.Textarea(attrs={'class': 'w-50 inline-block','rows': 1,
+                                                'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-x:hidden;',
+                                                 'oninput': 'this.style.height= "";this.style.height=this.scrollHeight+"px";'}),
+             'content' :forms.Textarea(attrs={'class': 'w-100 inline-block','rows': 8,
+                                                'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-y:scroll; overflow-x:hidden;',
+                                                 'oninput': 'this.style.height= "200px";'})
+          }
+
 
 class NewPostForm(PostForm): 
     image = forms.ImageField(required=False) 
@@ -53,10 +74,13 @@ class CommentForm(forms.ModelForm):
         fields = ['content']
 
         labels = {
-            'content': 'Comentario'
+            'content': ''
         }
         widgets = {
-            'content': forms.Textarea(attrs={'rows': 3, 'placeholder': 'Escribe tu comentario...', 'class': 'p-2'})
+             'content': forms.Textarea(attrs={'placeholder': '  Escribe un comentario...', 
+                                          'class': 'w-50 inline-block','rows': 1,
+                                            'style': 'resize:none; border-radius: 10px; box-sizing: border-box; overflow-x:hidden;',
+                                             'oninput': 'this.style.height= "";this.style.height=this.scrollHeight+"px";'})
         }
 
 class PostFilterForm(forms.Form):
@@ -70,6 +94,9 @@ class PostFilterForm(forms.Form):
             ('-creation_date', 'Más reciente'), 
             ('creation_date', 'Más antiguo'), 
             ('-comments_count', 'Más comentado'), 
+            ('comments_count', 'Menos comentados'),
+            ('title', 'Titulos (A-Z)'),
+            ('-title', 'Titulos (Z,A)')
         ),
         widget=forms.Select(attrs={'class': 'w-full p-2'}) 
     )
